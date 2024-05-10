@@ -1,6 +1,6 @@
 from operator import add
 
-from gym.spaces import Discrete
+from gymnasium.spaces import Discrete
 
 from gym_minigrid.minigrid import Ball, Goal, Grid, MiniGridEnv, MissionSpace
 
@@ -86,7 +86,7 @@ class DynamicObstaclesEnv(MiniGridEnv):
             max_steps=4 * size * size,
             # Set this to True for maximum speed
             see_through_walls=True,
-            **kwargs
+            **kwargs,
         )
         # Allow only 3 actions permitted: left, right, forward
         self.action_space = Discrete(self.actions.forward + 1)

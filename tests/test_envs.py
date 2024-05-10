@@ -1,10 +1,10 @@
 import warnings
 
-import gym
+import gymnasium as gym
 import numpy as np
 import pytest
-from gym.envs.registration import EnvSpec
-from gym.utils.env_checker import check_env
+from gymnasium.envs.registration import EnvSpec
+from gymnasium.utils.env_checker import check_env
 
 from gym_minigrid.minigrid import Grid, MissionSpace
 from tests.utils import all_testing_env_specs, assert_equals
@@ -212,7 +212,6 @@ def test_interactive_mode(env_id):
 
 
 def test_mission_space():
-
     # Test placeholders
     mission_space = MissionSpace(
         mission_func=lambda color, obj_type: f"Get the {color} {obj_type}.",
@@ -244,7 +243,11 @@ def test_mission_space():
 
     # Test repeated placeholders
     mission_space = MissionSpace(
-        mission_func=lambda get_syntax, color_1, obj_type_1, color_2, obj_type_2: f"{get_syntax} {color_1} {obj_type_1} and the {color_2} {obj_type_2}.",
+        mission_func=lambda get_syntax,
+        color_1,
+        obj_type_1,
+        color_2,
+        obj_type_2: f"{get_syntax} {color_1} {obj_type_1} and the {color_2} {obj_type_2}.",
         ordered_placeholders=[
             ["go get the", "get the", "go fetch the", "fetch the"],
             ["green", "red"],

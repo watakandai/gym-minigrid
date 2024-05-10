@@ -4,10 +4,10 @@ from abc import abstractmethod
 from enum import IntEnum
 from typing import Any, Callable, Optional, Union
 
-import gym
+import gymnasium as gym
 import numpy as np
-from gym import spaces
-from gym.utils import seeding
+from gymnasium import spaces
+from gymnasium.utils import seeding
 
 # Size in pixels of a tile in the full-scale human view
 from gym_minigrid.rendering import (
@@ -240,7 +240,6 @@ class MissionSpace(spaces.Space[str]):
     def __eq__(self, other) -> bool:
         """Check whether ``other`` is equivalent to this instance."""
         if isinstance(other, MissionSpace):
-
             # Check that place holder lists are the same
             if self.ordered_placeholders is not None:
                 # Check length
@@ -256,10 +255,8 @@ class MissionSpace(spaces.Space[str]):
                     other_mission = other.mission_func(*test_placeholders)
                     return mission == other_mission
             else:
-
                 # Check that other is also None
                 if other.ordered_placeholders is None:
-
                     # Check mission string is the same
                     mission = self.mission_func()
                     other_mission = other.mission_func()
@@ -996,7 +993,6 @@ class MiniGridEnv(gym.Env):
         str = ""
 
         for j in range(self.grid.height):
-
             for i in range(self.grid.width):
                 if i == self.agent_pos[0] and j == self.agent_pos[1]:
                     str += 2 * AGENT_DIR_TO_STR[self.agent_dir]
@@ -1520,7 +1516,6 @@ class MiniGridEnv(gym.Env):
             return self.get_full_render(highlight, tile_size)
 
     def render(self):
-
         img = self.get_frame(self.highlight, self.tile_size, self.agent_pov)
 
         if self.render_mode == "human":
