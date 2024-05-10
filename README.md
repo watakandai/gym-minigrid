@@ -1,6 +1,6 @@
 # MiniGrid (formerly gym-minigrid)
 
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://pre-commit.com/) 
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://pre-commit.com/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 There are other gridworld Gym environments out there, but this one is
@@ -52,7 +52,7 @@ List of publications & submissions using MiniGrid or BabyAI (please open a pull 
 - [Working Memory Graphs](https://arxiv.org/abs/1911.07141) (MSR, Nov 2019)
 - [Fast Task-Adaptation for Tasks Labeled Using Natural Language in Reinforcement Learning](https://arxiv.org/pdf/1910.04040.pdf) (Oct 2019, University of Antwerp)
 - [Generalization in Reinforcement Learning with Selective Noise Injection and Information Bottleneck](https://arxiv.org/abs/1910.12911) (MSR, NeurIPS, Oct 2019)
-- [Recurrent Independent Mechanisms](https://arxiv.org/pdf/1909.10893.pdf) (Mila, Sept 2019) 
+- [Recurrent Independent Mechanisms](https://arxiv.org/pdf/1909.10893.pdf) (Mila, Sept 2019)
 - [Learning Effective Subgoals with Multi-Task Hierarchical Reinforcement Learning](http://surl.tirl.info/proceedings/SURL-2019_paper_10.pdf) (Tsinghua University, August 2019)
 - [Mastering emergent language: learning to guide in simulated navigation](https://arxiv.org/abs/1908.05135) (University of Amsterdam, Aug 2019)
 - [Transfer Learning by Modeling a Distribution over Policies](https://arxiv.org/abs/1906.03574) (Mila, June 2019)
@@ -105,7 +105,7 @@ The environment being run can be selected with the `--env` option, eg:
 
 ## Reinforcement Learning
 
-If you want to train an agent with reinforcement learning, I recommend using the code found in the [torch-rl](https://github.com/lcswillems/torch-rl) repository. 
+If you want to train an agent with reinforcement learning, I recommend using the code found in the [torch-rl](https://github.com/lcswillems/torch-rl) repository.
 This code has been tested and is known to work with this environment. The default hyper-parameters are also known to converge.
 
 A sample training command is:
@@ -125,8 +125,8 @@ field which can be used as an optional compass. Using dictionaries makes it
 easy for you to add additional information to observations
 if you need to, without having to encode everything into a single tensor.
 
-There are a variety of wrappers to change the observation format available in [gym_minigrid/wrappers.py](/gym_minigrid/wrappers.py). 
-If your RL code expects one single tensor for observations, take a look at `FlatObsWrapper`. 
+There are a variety of wrappers to change the observation format available in [gym_minigrid/wrappers.py](/gym_minigrid/wrappers.py).
+If your RL code expects one single tensor for observations, take a look at `FlatObsWrapper`.
 There is also an `ImgObsWrapper` that gets rid of the 'mission' field in observations, leaving only the image field tensor.
 
 Please note that the default observation format is a partially observable view of the environment using a
@@ -135,7 +135,7 @@ These values are **not pixels**. If you want to obtain an array of RGB pixels as
 use the `RGBImgPartialObsWrapper`. You can use it as follows:
 
 ```python
-import gym
+import gymnasium as gym
 from gym_minigrid.wrappers import RGBImgPartialObsWrapper, ImgObsWrapper
 
 env = gym.make('MiniGrid-Empty-8x8-v0')
@@ -166,7 +166,7 @@ Actions in the basic environment:
 - Done (task completed, optional)
 
 Default tile/observation encoding:
-- Each tile is encoded as a 3 dimensional tuple: `(OBJECT_IDX, COLOR_IDX, STATE)` 
+- Each tile is encoded as a 3 dimensional tuple: `(OBJECT_IDX, COLOR_IDX, STATE)`
 - `OBJECT_TO_IDX` and `COLOR_TO_IDX` mapping can be found in [gym_minigrid/minigrid.py](gym_minigrid/minigrid.py)
 - `STATE` refers to the door state with 0=open, 1=closed and 2=locked
 
@@ -200,7 +200,7 @@ starting in the corner opposite to the goal.
     <img src="figures/empty-env.png" width=250 alt="Figure of the empty environment">
 </p>
 
-Registered configurations: 
+Registered configurations:
 - `MiniGrid-Empty-5x5-v0`
 - `MiniGrid-Empty-Random-5x5-v0`
 - `MiniGrid-Empty-6x6-v0`
@@ -219,7 +219,7 @@ and the goal square are randomly placed in any of the four rooms.
     <img src="figures/four-rooms-env.png" width=380 alt="Figure of the four room environment">
 </p>
 
-Registered configurations: 
+Registered configurations:
 - `MiniGrid-FourRooms-v0`
 
 ### Door & key environment
@@ -233,7 +233,7 @@ useful to experiment with curiosity or curriculum learning.
     <img src="figures/door-key-env.png" alt="Figure of the door key environment">
 </p>
 
-Registered configurations: 
+Registered configurations:
 - `MiniGrid-DoorKey-5x5-v0`
 - `MiniGrid-DoorKey-6x6-v0`
 - `MiniGrid-DoorKey-8x8-v0`
@@ -507,9 +507,9 @@ Registered configurations:
 
 ### Dynamic obstacles environment
 
-This environment is an empty room with moving obstacles. 
-The goal of the agent is to reach the green goal square without colliding with any obstacle. 
-A large penalty is subtracted if the agent collides with an obstacle and the episode finishes. 
+This environment is an empty room with moving obstacles.
+The goal of the agent is to reach the green goal square without colliding with any obstacle.
+A large penalty is subtracted if the agent collides with an obstacle and the episode finishes.
 This environment is useful to test Dynamic Obstacle Avoidance for mobile robots with Reinforcement Learning in Partial Observability.
 
 <p align="center">
